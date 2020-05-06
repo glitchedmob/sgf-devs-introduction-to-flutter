@@ -5,7 +5,7 @@ class BuiltInWidgetsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Layouts'),
+        title: Text('Built in Widgets'),
       ),
       body: Center(
         child: Column(
