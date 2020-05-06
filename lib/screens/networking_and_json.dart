@@ -10,7 +10,7 @@ class NetworkingAndJsonScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('State Management'),
+        title: Text('Networking and JSON'),
       ),
       body: Column(
         children: [
