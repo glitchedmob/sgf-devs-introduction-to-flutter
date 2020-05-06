@@ -7,7 +7,20 @@ class ListViewScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('ListView'),
       ),
-      body: Container(),
+      body: ListView.separated(
+        itemCount: 200,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text('item $index'),
+            onTap: () {
+              print('selected $index');
+            },
+          );
+        },
+        separatorBuilder: (context, index) {
+          return Divider(thickness: 4, color: Colors.black,);
+        },
+      ),
     );
   }
 }
