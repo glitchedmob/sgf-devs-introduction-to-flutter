@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intro_app/provider/trivia_question_provider.dart';
 
 import 'package:intro_app/screens/basic_ui_widgets_screen.dart';
 import 'package:intro_app/screens/forms_and_inputs_screen.dart';
@@ -9,6 +10,7 @@ import 'package:intro_app/screens/layout_widgets_screen.dart';
 import 'package:intro_app/screens/list_view_screen.dart';
 import 'package:intro_app/screens/networking_and_json.dart';
 import 'package:intro_app/screens/state_management_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(App());
@@ -29,14 +31,19 @@ var routes = {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SGF Devs Intro to Flutter',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => TriviaQuestionProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'SGF Devs Intro to Flutter',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/landing',
+        routes: routes,
       ),
-      initialRoute: '/landing',
-      routes: routes,
     );
   }
 }
